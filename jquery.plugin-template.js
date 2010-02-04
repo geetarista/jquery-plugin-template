@@ -1,6 +1,6 @@
 /*
  * jQuery NAME Plugin
- * version: x.x
+ * Version: x.x
  * URL: URL
  * Description: DESCRIPTION
  * Requires: JQUERY_VERSION, ETC.
@@ -10,7 +10,7 @@
 
 (function($) {
   $.fn.PLUGIN = function(settings) {
-    settings = $.extend({
+    var settings = $.extend({
       PROPERTY: "VALUE"
     }, settings || {});
 
