@@ -1,29 +1,54 @@
-/*
+/** 
+ * For more information and to see sources of information, see:
+ * http://docs.jquery.com/Plugins/Authoring
+ * http://www.learningjquery.com/2007/10/a-plugin-development-pattern
+ */
+
+/**
  * jQuery NAME Plugin
- * Version: x.x
+ * Version: x.x.x
  * URL: URL
  * Description: DESCRIPTION
  * Requires: JQUERY_VERSION, ETC.
  * Author: AUTHOR
- * Copyright: Copyright 2009 NAME
+ * AUTHOR URL
+ * Copyright: Copyright 2010 NAME
  */
 
+// Plugin closure wrapper
 (function($) {
-  $.fn.PLUGIN = function(settings) {
-    var settings = $.extend({
-      PROPERTY: "VALUE"
-    }, settings || {});
+  
+  // Main plugin function
+  // Replace PLUGIN with the name of your desired function
+  $.fn.PLUGIN = function(options) {
+    
+    // Overwrite user options with plugin defaults
+    var opts = $.extend({}, $.fn.PLUGIN.defaults, options);
 
-    $.fn.PLUGIN.el = $(this); // receiving DOM element
+    // Iterate through DOM elements and work your magic
+    return this.each(function() {
+      // Assign the current object to a variable for easier use
+      $this = $(this);
 
     // main plugin functionality
   };
 
-  function privateFunction() {
-    // private function
+  // Public plugin function
+  // Replce PLUGIN with your plugin function's name
+  // Replace FUNCT with the name of the public function
+  $.fn.PLUGIN.FUNCT = function() {
+    // Cool JS action
   }
 
-  $.fn.PLUGIN.FUNCT = function() {
-    // public plugin function
+  // 
+  $.fn.PLUGIN.defaults = {
+    property: "value",
+    anotherProperty: 10
+  };
+
+  // Private function that is used within the plugin
+  function privateFunction() {
+    // Cool JS action
   }
-})(jQuery);
+
+})(jQuery); // end closure wrapper
