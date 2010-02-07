@@ -1,18 +1,28 @@
 /** 
- * For more information and to see sources of information, see:
+ * jQuery Plugin Template
+ * http://github.com/geetarista/jquery-plugin-template
+ *
+ * Robby Colvin
+ * http://robbycolvin.com
+ *
+ * For more information and sources of inspiration, see:
  * http://docs.jquery.com/Plugins/Authoring
  * http://www.learningjquery.com/2007/10/a-plugin-development-pattern
+ * 
+ * Everything below is just a scaffold for a jQuery plugin.
+ * Replace all instances of capitalization with your nomenclature.
+ * Remove this comment block and write your plugin!
  */
 
 /**
- * jQuery NAME Plugin
+ * jQuery PLUGIN_NAME Plugin
  * Version: x.x.x
  * URL: URL
  * Description: DESCRIPTION
- * Requires: JQUERY_VERSION, ETC.
- * Author: AUTHOR
- * AUTHOR URL
- * Copyright: Copyright 2010 NAME
+ * Requires: JQUERY_VERSION, OTHER_PLUGIN(S), ETC.
+ * Author: AUTHOR (AUTHOR_URL)
+ * Copyright: Copyright 2010 YOUR_NAME
+ * License: LICENSE_INFO
  */
 
 // Plugin closure wrapper
@@ -30,17 +40,20 @@
       // Assign the current object to a variable for easier use
       $this = $(this);
 
-    // main plugin functionality
-  };
+      // This is where most of your plugin functionality resides
+
+    }); // end return this.each
+
+  }; // end $.fn.PLUGIN
 
   // Public plugin function
   // Replce PLUGIN with your plugin function's name
   // Replace FUNCT with the name of the public function
   $.fn.PLUGIN.FUNCT = function() {
     // Cool JS action
-  }
+  }; // end $.fn.PLUGIN.FUNCT
 
-  // 
+  // Default settings for the plugin
   $.fn.PLUGIN.defaults = {
     property: "value",
     anotherProperty: 10
