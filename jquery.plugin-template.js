@@ -38,7 +38,7 @@
     // Iterate through DOM elements and work your magic
     return this.each(function() {
       // Assign the current object to a variable for easier use
-      $this = $(this);
+      var $this = $(this);
 
       // This is where most of your plugin functionality resides
 
