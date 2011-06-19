@@ -1,19 +1,3 @@
-/** 
- * jQuery Plugin Template
- * http://github.com/geetarista/jquery-plugin-template
- *
- * Robby Colvin
- * http://robbycolvin.com
- *
- * For more information and sources of inspiration, see:
- * http://docs.jquery.com/Plugins/Authoring
- * http://www.learningjquery.com/2007/10/a-plugin-development-pattern
- * 
- * Everything below is just a scaffold for a jQuery plugin.
- * Replace all instances of capitalization with your nomenclature.
- * Remove this comment block and write your plugin!
- */
-
 /**
  * jQuery PLUGIN_NAME Plugin
  * Version: x.x.x
