@@ -7,3 +7,6 @@ A template to simplify jQuery plugin authoring.
 1. Replace all instances of capitalization with your nomenclature.
 2. Write your plugin!
 
+## License
+
+MIT. See `LICENSE`.
