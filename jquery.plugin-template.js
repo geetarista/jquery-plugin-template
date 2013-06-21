@@ -1,83 +1,80 @@
 /**
- * jQuery Plugin Plugin
- * Version: 0.0.0
+ * PLUGIN_NAME
+ * Version: VERSION
  * URL: URL
  * Description: DESCRIPTION
  * Requires: JQUERY_VERSION, OTHER_PLUGIN(S), ETC.
  * Author: AUTHOR (AUTHOR_URL)
- * Copyright: Copyright 2012 YOUR_NAME
+ * Copyright: Copyright 2013 YOUR_NAME
  * License: LICENSE_INFO
  */
 
 // Plugin closure wrapper
-// Uses dollar internally, but calls jQuery to prevent conflicts with other libraries
+// Uses dollar, but calls jQuery to prevent conflicts with other libraries
 // Semicolon to prevent breakage with concatenation
 // Pass in window as local variable for efficiency (could do same for document)
 // Pass in undefined to prevent mutation in ES3
 ;(function($, document, window, undefined) {
-  // Optional, but considered best practice by some
-  "use strict";
+    // Optional, but considered best practice by some
+    "use strict";
 
-  // Default options for the plugin as a simple object
-  var defaults = {
-    property: 'value',
-    anotherProperty: 10
-  };
+    // Name the plugin so it's only in one place
+    var pluginName = 'PLUGIN';
 
-  // Plugin constructor
-  // This is the boilerplate to set up the plugin to keep our actual logic in one place
-  function Plugin(element, options) {
-    this.element = element;
+    // Default options for the plugin as a simple object
+    var defaults = {
+        property: 'value',
+        anotherProperty: 10
+    };
 
-    // Merge the options given by the user with the defaults
-    this.options = $.extend({}, defaults, options)
+    // Plugin constructor
+    // This is the boilerplate to set up the plugin to keep our actual logic in one place
+    function Plugin(element, options) {
+        this.element = element;
 
-    // Attach data to the elment
-    this.$el      = $(el);
-    this.$el.data(name, this);
+        // Merge the options given by the user with the defaults
+        this.options = $.extend({}, defaults, options)
 
-    this.defaults = {};
+        // Attach data to the elment
+        this.$el      = $(el);
+        this.$el.data(name, this);
 
-    var meta      = this.$el.data(name + '-opts');
-    this.opts     = $.extend(this.defaults, opts, meta);
+        this._defaults = defaults;
 
-    // Initialization code to get the ball rolling
-    // If your plugin is simple, this may not be necessary and
-    // you could place your implementation here
-    this.init();
-  }
+        var meta      = this.$el.data(name + '-opts');
+        this.opts     = $.extend(this._defaults, opts, meta);
 
-  // Plugin initializer - prepare your plugin
-  // This is a public function that users can call
-  // Prototype methods are shared across all elements
-  // If your plugin is complex, you can split functionality into more
-  // methods like this one
-  Plugin.prototype.init = function() {
-    // You have access to this.options and this.element
-  };
+        // Initialization code to get the ball rolling
+        // If your plugin is simple, this may not be necessary and
+        // you could place your implementation here
+        this.init();
+    }
 
-  $.fn.Plugin = function(options) {
-    // global settings
-    settings = $.extend({}, $.fn.wTooltip.defaultSettings, settings);
-    // Iterate through each DOM element and return it
-    return this.each(function() {
-      // Assign the current object to a variable for easier use
-      var element = this; // or $(this)
+    Plugin.prototype = {
+        // Public functions accessible to users
+        // Prototype methods are shared across all elements
+        // You have access to this.options and this.element
+        // If your plugin is complex, you can split functionality into more
+        // methods like this one
 
-      // prevent multiple instantiations
-      if (!$.data(this, 'plugin_' + pluginName)) {
-        $.data(this, 'plugin_' + pluginName, new Plugin( this, options ));
-      }
+        init = function() {
+            // Plugin initializer - prepare your plugin
+        },
+    };
 
-      new Plugin(this, options);
+    $.fn[pluginName] = function(options) {
+        // Iterate through each DOM element and return it
+        return this.each(function() {
+            // prevent multiple instantiations
+            if (!$.data(this, 'plugin_' + pluginName)) {
+                $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+            }
+        });
+    };
 
-    }); // end return this.each
+    // Private function that is only called by the plugin
+    var privateFunction = function() {
+        // ...
+    }
 
-  }; // end $.fn.PLUGIN
-
-  // Private function that is only called by the plugin
-  var privateFunction = function() {
-    // ...
-  }
-
-})(jQuery, document, window); // end closure wrapper
+})(jQuery, document, window);
