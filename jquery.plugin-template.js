@@ -57,9 +57,9 @@
         // If your plugin is complex, you can split functionality into more
         // methods like this one
 
-        init = function() {
+        init: function() {
             // Plugin initializer - prepare your plugin
-        },
+        }
     };
 
     $.fn[pluginName] = function(options) {
