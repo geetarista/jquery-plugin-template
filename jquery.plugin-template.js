@@ -36,13 +36,13 @@
         this.options = $.extend({}, defaults, options)
 
         // Attach data to the elment
-        this.$el      = $(el);
+        this.$el      = $(element);
         this.$el.data(name, this);
 
         this._defaults = defaults;
 
         var meta      = this.$el.data(name + '-opts');
-        this.opts     = $.extend(this._defaults, opts, meta);
+        this.opts     = $.extend(this._defaults, options, meta);
 
         // Initialization code to get the ball rolling
         // If your plugin is simple, this may not be necessary and
